@@ -8,11 +8,11 @@ app.use((req, res, next)=>{
   next();
 });
 
+app.use(express.static('public'));
+
 app.get('/', async (req, res) => {
 
-  res.json({
-    msg: 'hello this is main'
-  })
+  res.sendFile('./public/index.html');
 });
 
 app.listen(PORT, ()=>{
