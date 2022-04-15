@@ -5,8 +5,8 @@ const PORT = process.env.PORT || 3333;
 const path = require('path');
 
 app.use((req, res, next)=>{
-
-
+  res.setHeader('Cross-Origin-Resource-Policy', 'same-site');
+  res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
   next();
 });
 
