@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3333;
+
+const path = require('path');
 
 app.use((req, res, next)=>{
 
@@ -12,7 +14,8 @@ app.use(express.static('public'));
 
 app.get('/', async (req, res) => {
 
-  res.sendFile('./public/index.html');
+  const indexFilePath = path.join(__dirname, '/public/index.html')
+  res.sendFile(indexFilePath);
 });
 
 app.listen(PORT, ()=>{
